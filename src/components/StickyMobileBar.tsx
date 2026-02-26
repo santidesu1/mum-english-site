@@ -2,7 +2,7 @@
 
 import { branch } from "@/config/branch";
 import Link from "next/link";
-import { useLang } from "./lang/LangProvider";
+import { useLang } from "@/lang/LangProvider";
 import { t } from "@/lib/i18n";
 
 export function StickyMobileBar() {

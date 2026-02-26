@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { branch } from "@/config/branch";
 import { OwlLogo } from "./OwlLogo";
-import { LangProvider, useLang } from "./lang/LangProvider";
+import { useLang } from "@/components/lang/LangProvider";
 import { LangToggle } from "./lang/LangToggle";
 import { t } from "@/lib/i18n";
 
@@ -44,9 +44,5 @@ function HeaderInner() {
 }
 
 export function SiteHeader() {
-  return (
-    <LangProvider>
-      <HeaderInner />
-    </LangProvider>
-  );
+  return <HeaderInner />;
 }
