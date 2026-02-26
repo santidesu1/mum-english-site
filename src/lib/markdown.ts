@@ -9,7 +9,7 @@ export function renderMarkdown(md: string): string {
       a: ["href", "name", "target", "rel"],
     },
     transformTags: {
-      a: (tagName, attribs) => ({
+      a: (tagName: string, attribs: Record<string,string>) => ({
         tagName,
         attribs: {
           ...attribs,
