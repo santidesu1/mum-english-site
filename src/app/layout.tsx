@@ -1,3 +1,4 @@
+import { LangProvider } from "@/components/lang/LangProvider";
 import type { Metadata } from "next";
 import "./globals.css";
 import { branch } from "@/config/branch";
@@ -43,13 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body className="min-h-screen">
+       <LangProvider>
         <LocalBusinessJsonLd />
         <SiteHeader />
         <main className="mx-auto w-full max-w-6xl px-4 pb-24 pt-6 md:px-6 md:pb-8">
           {children}
         </main>
         <SiteFooter />
-        <StickyMobileBar />
+        <StickyMobileBar />     
+       </LangProvider>
       </body>
     </html>
   );
