@@ -44,8 +44,8 @@ export default function ContactPage() {
         ) : (
           <form
             className="mt-5 grid gap-4"
-            action={endpoint || undefined}
-            method="post"
+            action="https://formspree.io/f/xvzblvwy"
+            method="POST"
             onSubmit={(e) => {
               if (!endpoint) { e.preventDefault(); return; }
               setTimeout(() => setSubmitted(true), 300);
