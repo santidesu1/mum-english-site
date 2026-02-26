@@ -1,0 +1,23 @@
+export const branch = {
+  nameKo: "뮤엠영어 수원역푸르지오자이점",
+  nameEn: "MU:M English Suwon Station Prugio Xi Branch",
+  taglineKo: "주 5일 · 꼼꼼한 개별 지도",
+  taglineEn: "Mon–Fri learning routine · careful individual guidance",
+  addressKo: "수원시 팔달구 팔달로 69 라임스퀘어 4층",
+  addressEn: "316 Godeung-dong, Paldal-gu, Suwon-si, Gyeonggi-do",
+  phone: "010-5640-6281",
+  email: "mum_english_supuja@naver.com",
+  hoursKo: "월–금 13:00–19:00",
+  hoursEn: "Mon–Fri 13:00–19:00",
+  closedNoteKo: "주말 및 대한민국 공휴일 휴무",
+  closedNoteEn: "Closed on weekends and Korean national holidays",
+  parkingKo: "무료 주차 가능",
+  parkingEn: "Free parking available",
+  amenitiesKo: ["대기공간", "Wi‑Fi", "남/녀 화장실 구분"],
+  amenitiesEn: ["Waiting space", "Wi‑Fi", "Separate restrooms"],
+  links: {
+    naverBlog: "https://blog.naver.com/mum_english_supuja",
+    instagram: "https://www.instagram.com/mum_english_supuja/",
+    naverMap: "https://naver.me/FYrxsHSO",
+  },
+};
