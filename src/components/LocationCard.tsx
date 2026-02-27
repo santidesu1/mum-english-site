@@ -22,7 +22,7 @@ export function LocationCard() {
     <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
       <h2 className="text-xl font-extrabold">{t.sections.location[lang]}</h2>
 
-      <div className="mt-3 space-y-2 text-sm text-black/70">
+      <div className="mt-3 space-y-1 text-sm text-black/70">
         {/* Address row + actions (kept close to the address) */}
         <div className="flex flex-wrap items-center gap-2">
           <p className="min-w-0">
@@ -31,13 +31,13 @@ export function LocationCard() {
           </p>
 
           <div className="flex flex-wrap items-center gap-2">
-            <Button variant="outline" asChild className="h-9">
+            <Button variant="outline" asChild className="h-9 rounded-full px-4 font-extrabold bg-paper/60 hover:bg-paper">
               <a href={branch.links.naverMap} target="_blank" rel="noreferrer">
                 {t.cta.openNaver[lang]}
               </a>
             </Button>
 
-            <Button variant="outline" type="button" onClick={copy} className="h-9">
+            <Button variant="outline" type="button" onClick={copy} className="h-9rounded-full px-4 font-extrabold bg-paper/60 hover:bg-paper">
               {t.cta.copyAddr[lang]}
             </Button>
           </div>
