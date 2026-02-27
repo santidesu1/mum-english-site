@@ -11,7 +11,7 @@ export const t = {
     home: { ko: "홈", en: "Home" },
     programs: { ko: "프로그램", en: "Programs" },
     booking: { ko: "상담 예약", en: "Book" },
-    notices: { ko: "공지/블로그", en: "Notices" },
+    notices: { ko: "공지/블로그", en: "Updates" },
     contact: { ko: "오시는 길", en: "Contact" },
   },
   cta: {
