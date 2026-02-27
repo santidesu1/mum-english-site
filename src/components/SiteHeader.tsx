@@ -29,14 +29,8 @@ function HeaderInner() {
           <Link className="text-sm font-extrabold hover:underline" href="/contact">{t.nav.contact[lang]}</Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-3">
           <LangToggle />
-          <a
-            href={`tel:${branch.phone}`}
-            className="hidden rounded-xl bg-ink px-4 py-2 text-sm font-extrabold text-white hover:opacity-90 md:inline-flex"
-          >
-            {lang === "ko" ? "전화" : "Call"}
-          </a>
         </div>
       </div>
     </header>
