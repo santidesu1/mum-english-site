@@ -8,10 +8,11 @@ import { t } from "@/lib/i18n";
 export function LocationCard() {
   const { lang } = useLang();
 
+  const addressText = lang === "ko" ? branch.addressKo : branch.addressEn;
+
   const copy = async () => {
     try {
-      const text = lang === "ko" ? branch.addressKo : branch.addressEn;
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(addressText);
       alert(lang === "ko" ? "주소가 복사되었습니다." : "Address copied.");
     } catch {
       alert(lang === "ko" ? "복사에 실패했습니다." : "Copy failed.");
@@ -23,49 +24,60 @@ export function LocationCard() {
       <h2 className="text-xl font-extrabold">{t.sections.location[lang]}</h2>
 
       <div className="mt-3 space-y-2 text-sm text-black/70">
-        {/* Address row */}
-        <div className="flex flex-wrap items-center gap-3">
-          <p className="flex-1 min-w-[240px]">
+        {/* Address row + actions (close to the address, not far right) */}
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="min-w-0 flex-1">
             <span className="font-bold">{lang === "ko" ? "주소:" : "Address:"}</span>{" "}
-            {lang === "ko" ? branch.addressKo : branch.addressEn}
+            {addressText}
           </p>
 
-          <div className="flex items-center gap-2">
-            <Button asChild>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button
+              asChild
+              className="h-8 rounded-full px-3 text-sm font-extrabold"
+            >
               <a href={branch.links.naverMap} target="_blank" rel="noreferrer">
                 {t.cta.openNaver[lang]}
               </a>
             </Button>
 
-            <Button variant="outline" type="button" onClick={copy} aria-label="Copy address">
+            <Button
+              variant="outline"
+              type="button"
+              onClick={copy}
+              className="h-8 rounded-full px-3 text-sm font-extrabold"
+            >
               {t.cta.copyAddr[lang]}
             </Button>
           </div>
         </div>
 
-        {/* Hours */}
         <p>
           <span className="font-bold">{lang === "ko" ? "운영시간:" : "Hours:"}</span>{" "}
           {lang === "ko" ? branch.hoursKo : branch.hoursEn}
         </p>
+
         <p className="text-xs text-black/50">
           {lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}
         </p>
 
-        {/* Parking */}
         <p>
           <span className="font-bold">{lang === "ko" ? "주차:" : "Parking:"}</span>{" "}
           {lang === "ko" ? branch.parkingKo : branch.parkingEn}
         </p>
 
-        {/* Phone row */}
-        <div className="flex flex-wrap items-center gap-3">
-          <p className="flex-1 min-w-[240px]">
+        {/* Phone row + Call button (RIGHT NEXT TO the number) */}
+        <div className="flex flex-wrap items-center gap-2">
+          <p>
             <span className="font-bold">{lang === "ko" ? "전화:" : "Phone:"}</span>{" "}
             {branch.phone}
           </p>
 
-          <Button variant="outline" asChild>
+          <Button
+            variant="outline"
+            asChild
+            className="h-8 rounded-full px-3 text-sm font-extrabold"
+          >
             <a href={`tel:${branch.phone}`}>{t.cta.call[lang]}</a>
           </Button>
         </div>
