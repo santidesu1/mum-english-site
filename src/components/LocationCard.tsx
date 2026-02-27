@@ -5,6 +5,33 @@ import { Button } from "@/components/ui/Button";
 import { useLang } from "@/components/lang/LangProvider";
 import { t } from "@/lib/i18n";
 
+function CopyIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 7.5V6.2C8 5.54 8.54 5 9.2 5H18.8C19.46 5 20 5.54 20 6.2V15.8C20 16.46 19.46 17 18.8 17H17.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <rect
+        x="4"
+        y="7.5"
+        width="13.5"
+        height="13.5"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
 export function LocationCard() {
   const { lang } = useLang();
 
@@ -20,23 +47,60 @@ export function LocationCard() {
   return (
     <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
       <h2 className="text-xl font-extrabold">{t.sections.location[lang]}</h2>
-      <div className="mt-3 space-y-1 text-sm text-black/70">
-        <p><span className="font-bold">주소:</span> {branch.addressKo}</p>
-        <p><span className="font-bold">{lang === "ko" ? "운영시간:" : "Hours:"}</span> {lang === "ko" ? branch.hoursKo : branch.hoursEn}</p>
-        <p className="text-xs text-black/50">{lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}</p>
-        <p><span className="font-bold">{lang === "ko" ? "주차:" : "Parking:"}</span> {lang === "ko" ? branch.parkingKo : branch.parkingEn}</p>
-      </div>
 
-      <div className="mt-5 flex flex-wrap gap-3">
-        <Button asChild>
-          <a href={branch.links.naverMap} target="_blank" rel="noreferrer">{t.cta.openNaver[lang]}</a>
-        </Button>
-        <Button variant="outline" type="button" onClick={copy}>
-          {t.cta.copyAddr[lang]}
-        </Button>
-        <Button variant="outline" asChild>
-          <a href={`tel:${branch.phone}`}>{t.cta.call[lang]}</a>
-        </Button>
+      <div className="mt-3 space-y-2 text-sm text-black/70">
+        {/* Address row: text left, actions right */}
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <p className="min-w-[240px]">
+            <span className="font-bold">{lang === "ko" ? "주소:" : "Address:"}</span>{" "}
+            {branch.addressKo}
+          </p>
+
+          <div className="flex items-center gap-2">
+            <Button asChild className="h-9 px-3">
+              <a href={branch.links.naverMap} target="_blank" rel="noreferrer">
+                {t.cta.openNaver[lang]}
+              </a>
+            </Button>
+
+            <Button
+              variant="outline"
+              type="button"
+              onClick={copy}
+              className="h-9 px-3"
+              aria-label={lang === "ko" ? "주소 복사" : "Copy address"}
+              title={lang === "ko" ? "주소 복사" : "Copy address"}
+            >
+              <CopyIcon />
+            </Button>
+          </div>
+        </div>
+
+        <p>
+          <span className="font-bold">{lang === "ko" ? "운영시간:" : "Hours:"}</span>{" "}
+          {lang === "ko" ? branch.hoursKo : branch.hoursEn}
+        </p>
+
+        <p className="text-xs text-black/50">
+          {lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}
+        </p>
+
+        <p>
+          <span className="font-bold">{lang === "ko" ? "주차:" : "Parking:"}</span>{" "}
+          {lang === "ko" ? branch.parkingKo : branch.parkingEn}
+        </p>
+
+        {/* Phone row: number left, call right */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p>
+            <span className="font-bold">{lang === "ko" ? "전화:" : "Phone:"}</span>{" "}
+            {branch.phone}
+          </p>
+
+          <Button variant="outline" asChild className="h-9 px-3">
+            <a href={`tel:${branch.phone}`}>{t.cta.call[lang]}</a>
+          </Button>
+        </div>
       </div>
 
       <div className="mt-6 rounded-2xl bg-paper p-5 ring-1 ring-black/5">
