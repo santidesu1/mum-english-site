@@ -1,6 +1,3 @@
-cd ~/mum-english-site
-
-cat > src/components/LocationCard.tsx <<'EOF'
 "use client";
 
 import { branch } from "@/config/branch";
@@ -8,26 +5,13 @@ import { Button } from "@/components/ui/Button";
 import { useLang } from "@/components/lang/LangProvider";
 import { t } from "@/lib/i18n";
 
-function CopyIcon({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M8 7.5V6.2C8 5.54 8.54 5 9.2 5H18.8C19.46 5 20 5.54 20 6.2V15.8C20 16.46 19.46 17 18.8 17H17.5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <rect x="4" y="7.5" width="13.5" height="13.5" rx="2" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  );
-}
-
 export function LocationCard() {
   const { lang } = useLang();
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(branch.addressKo);
+      const text = lang === "ko" ? branch.addressKo : branch.addressEn;
+      await navigator.clipboard.writeText(text);
       alert(lang === "ko" ? "주소가 복사되었습니다." : "Address copied.");
     } catch {
       alert(lang === "ko" ? "복사에 실패했습니다." : "Copy failed.");
@@ -39,51 +23,49 @@ export function LocationCard() {
       <h2 className="text-xl font-extrabold">{t.sections.location[lang]}</h2>
 
       <div className="mt-3 space-y-2 text-sm text-black/70">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="min-w-0">
+        {/* Address row */}
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="flex-1 min-w-[240px]">
             <span className="font-bold">{lang === "ko" ? "주소:" : "Address:"}</span>{" "}
-            {branch.addressKo}
+            {lang === "ko" ? branch.addressKo : branch.addressEn}
           </p>
 
           <div className="flex items-center gap-2">
-            <Button variant="outline" asChild className="h-9 px-3">
+            <Button asChild>
               <a href={branch.links.naverMap} target="_blank" rel="noreferrer">
                 {t.cta.openNaver[lang]}
               </a>
             </Button>
 
-            <Button
-              variant="outline"
-              type="button"
-              onClick={copy}
-              className="h-9 px-3"
-              aria-label={lang === "ko" ? "주소 복사" : "Copy address"}
-              title={lang === "ko" ? "주소 복사" : "Copy address"}
-            >
-              <CopyIcon />
+            <Button variant="outline" type="button" onClick={copy} aria-label="Copy address">
+              {t.cta.copyAddr[lang]}
             </Button>
           </div>
         </div>
 
+        {/* Hours */}
         <p>
           <span className="font-bold">{lang === "ko" ? "운영시간:" : "Hours:"}</span>{" "}
           {lang === "ko" ? branch.hoursKo : branch.hoursEn}
         </p>
+        <p className="text-xs text-black/50">
+          {lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}
+        </p>
 
-        <p className="text-xs text-black/50">{lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}</p>
-
+        {/* Parking */}
         <p>
           <span className="font-bold">{lang === "ko" ? "주차:" : "Parking:"}</span>{" "}
           {lang === "ko" ? branch.parkingKo : branch.parkingEn}
         </p>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <p>
+        {/* Phone row */}
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="flex-1 min-w-[240px]">
             <span className="font-bold">{lang === "ko" ? "전화:" : "Phone:"}</span>{" "}
             {branch.phone}
           </p>
 
-          <Button variant="outline" asChild className="h-9 px-3">
+          <Button variant="outline" asChild>
             <a href={`tel:${branch.phone}`}>{t.cta.call[lang]}</a>
           </Button>
         </div>
@@ -100,4 +82,3 @@ export function LocationCard() {
     </div>
   );
 }
-EOF
