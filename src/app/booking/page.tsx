@@ -1,27 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { branch } from "@/config/branch";
 import { Button } from "@/components/ui/Button";
 import { useLang } from "@/components/lang/LangProvider";
 import { t } from "@/lib/i18n";
 
-function getEndpoint() {
-  return process.env.NEXT_PUBLIC_FORMSPREE_BOOKING_ENDPOINT || "";
-}
-
 export default function BookingPage() {
   const { lang } = useLang();
-  const endpoint = useMemo(() => getEndpoint(), []);
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
-    return (
-      <Success
-        title={t.forms.successTitle[lang]}
-        body={t.forms.successBody[lang]}
-      />
-    );
+    return <Success title={t.forms.successTitle[lang]} body={t.forms.successBody[lang]} />;
   }
 
   return (
@@ -38,28 +28,12 @@ export default function BookingPage() {
         </p>
       </header>
 
-      {!endpoint && (
-        <div className="rounded-2xl border border-black/10 bg-sun/40 p-5">
-          <p className="font-bold">{t.forms.missingEndpoint[lang]}</p>
-          <p className="mt-2 text-sm">
-            {lang === "ko"
-              ? `전화: ${branch.phone}`
-              : `Call: ${branch.phone}`}
-          </p>
-        </div>
-      )}
-
       <form
-        action={endpoint || undefined}
-        method="post"
+        action="https://formspree.io/f/mvzblery"
+        method="POST"
         className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8"
-        onSubmit={(e) => {
-          if (!endpoint) {
-            e.preventDefault();
-            return;
-          }
-          // Let the browser submit normally to Formspree, but show a local success screen instantly.
-          // Formspree will still receive the POST.
+        onSubmit={() => {
+          // Allow normal POST to Formspree; show a local success screen quickly.
           setTimeout(() => setSubmitted(true), 300);
         }}
       >
@@ -83,10 +57,19 @@ export default function BookingPage() {
 
         <div className="mt-4 grid gap-4">
           <Field label={t.forms.preferredTime[lang]}>
-            <input name="preferred_time" className="input" placeholder={lang === "ko" ? "예: 평일 16시 이후" : "e.g., weekdays after 16:00"} />
+            <input
+              name="preferred_time"
+              className="input"
+              placeholder={lang === "ko" ? "예: 평일 16시 이후" : "e.g., weekdays after 16:00"}
+            />
           </Field>
           <Field label={t.forms.message[lang]}>
-            <textarea name="message" rows={5} className="input" placeholder={lang === "ko" ? "현재 상황/목표를 간단히 적어주세요." : "Tell us goals and current level."} />
+            <textarea
+              name="message"
+              rows={5}
+              className="input"
+              placeholder={lang === "ko" ? "현재 상황/목표를 간단히 적어주세요." : "Tell us goals and current level."}
+            />
           </Field>
         </div>
 
@@ -98,9 +81,7 @@ export default function BookingPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button type="submit" disabled={!endpoint}>
-            {t.forms.submit[lang]}
-          </Button>
+          <Button type="submit">{t.forms.submit[lang]}</Button>
           <Button variant="outline" type="button" asChild>
             <a href={`tel:${branch.phone}`}>{lang === "ko" ? "전화로 문의" : "Call instead"}</a>
           </Button>
@@ -128,9 +109,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 function Success({ title, body }: { title: string; body: string }) {
   return (
     <div className="rounded-2xl bg-white p-10 shadow-soft ring-1 ring-black/5">
-      <div className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-2 text-sm font-extrabold">
-        완료
-      </div>
+      <div className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-2 text-sm font-extrabold">완료</div>
       <h1 className="mt-4 text-2xl font-extrabold">{title}</h1>
       <p className="mt-2 text-black/70">{body}</p>
       <div className="mt-6">
