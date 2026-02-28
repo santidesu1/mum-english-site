@@ -30,7 +30,7 @@ export default function TrialPage() {
         <p className="mt-2 text-black/70">
           {lang === "ko"
             ? "간단히 작성해 주시면 체험 수업 일정을 안내드리겠습니다."
-            : "Fill this out and we’ll schedule a trial class."}
+            : "Fill out this form to schedule a free trial class."}
         </p>
       </header>
 
