@@ -130,7 +130,7 @@ function Success({ title, body }: { title: string; body: string }) {
   return (
     <div className="rounded-2xl bg-white p-10 shadow-soft ring-1 ring-black/5">
       <div className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-2 text-sm font-extrabold">
-        {t.forms.successPill?.ko ? (title ? (title && "완료") : "완료") : "Done"}
+        {lang === "ko" ? "완료" : "Done"}
       </div>
       <h1 className="mt-4 text-2xl font-extrabold">{title}</h1>
       <p className="mt-2 text-black/70">{body}</p>
