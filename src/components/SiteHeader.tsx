@@ -25,6 +25,8 @@ function HeaderInner() {
           <Link className="text-sm font-extrabold hover:underline" href="/">{t.nav.home[lang]}</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/programs">{t.nav.programs[lang]}</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/booking">{t.nav.booking[lang]}</Link>
+          <Link className="text-sm font-extrabold hover:underline" href="/booking">Book a Visit</Link>
+          <Link className="text-sm font-extrabold hover:underline" href="/trial">Free Trial</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/notices">{t.nav.notices[lang]}</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/contact">{lang === "ko" ? t.nav.contact[lang] : "Contact Us"}</Link>
         </nav>
