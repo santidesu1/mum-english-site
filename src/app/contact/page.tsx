@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-8">
       <header className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
-        <h1 className="text-2xl font-extrabold">{t.nav.contact[lang]}</h1>
+        <h1 className="text-2xl font-extrabold">{lang === "ko" ? t.nav.contact[lang] : "Contact Us"}</h1>
         <p className="mt-2 text-black/70">
           {lang === "ko" ? "주소/운영시간/주차 안내" : "Address · hours · parking · Send us a message · Give us a call"}
         </p>

@@ -26,7 +26,7 @@ function HeaderInner() {
           <Link className="text-sm font-extrabold hover:underline" href="/programs">{t.nav.programs[lang]}</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/booking">{t.nav.booking[lang]}</Link>
           <Link className="text-sm font-extrabold hover:underline" href="/notices">{t.nav.notices[lang]}</Link>
-          <Link className="text-sm font-extrabold hover:underline" href="/contact">{t.nav.contact[lang]}</Link>
+          <Link className="text-sm font-extrabold hover:underline" href="/contact">{lang === "ko" ? t.nav.contact[lang] : "Contact Us"}</Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
