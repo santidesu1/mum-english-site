@@ -17,7 +17,7 @@ export default function BookingPage() {
   return (
     <div className="space-y-8">
       <header className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
-        <h1 className="text-2xl font-extrabold">{t.nav.visit[lang]}</h1>
+        <h1 className="text-2xl font-extrabold">{lang === "ko" ? t.nav.visit[lang] : "Book a visit for you and your child"}</h1>
         <p className="mt-2 text-black/70">
           {lang === "ko"
             ? "간단히 작성해 주시면 방문 상담 일정을 안내드리겠습니다."
