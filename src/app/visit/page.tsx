@@ -21,7 +21,7 @@ export default function BookingPage() {
         <p className="mt-2 text-black/70">
           {lang === "ko"
             ? "간단히 작성해 주시면 방문 상담 일정을 안내드리겠습니다."
-            : "Fill this out and we’ll schedule a visit."}
+            : "Fill this out and we'll contact you soon."}
         </p>
         <p className="mt-3 text-sm text-black/60">
   {(lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn)} ·{" "}
