@@ -16,7 +16,7 @@ export default function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
-    return <Success title={t.forms.successTitle[lang]} body={t.forms.successBody[lang]} />;
+    return <Success lang={lang} title={t.forms.successTitle[lang]} body={t.forms.successBody[lang]} />;
   }
 
   return (
@@ -126,7 +126,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-function Success({ title, body }: { title: string; body: string }) {
+function Success({ lang, title, body }: { lang: "ko" | "en"; title: string; body: string }) {
   return (
     <div className="rounded-2xl bg-white p-10 shadow-soft ring-1 ring-black/5">
       <div className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-2 text-sm font-extrabold">
