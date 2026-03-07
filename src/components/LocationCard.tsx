@@ -49,13 +49,11 @@ export function LocationCard() {
               aria-label="Open Naver Map"
               title="Open Naver Map"
             >
-              <Image
-                src="/icons/naver-map.png"
-                alt="Naver Map"
-                width={20}
-                height={20}
-                className="h-5 w-5 object-contain"
-              />
+              <img
+              src="/icons/naver-map.png"
+              alt="Naver Map"
+              className="h-5 w-5 object-contain"
+            />
             </a>
 
             <button
