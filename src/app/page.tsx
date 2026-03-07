@@ -201,12 +201,12 @@ export default function HomePage() {
             rel="noreferrer"
             aria-label="Naver Blog"
             title="Naver Blog"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 bg-white text-black hover:bg-black/5"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-black/15 bg-white px-4 hover:bg-black/5"
           >
             <img
               src="/icons/naver-blog.png"
               alt="Naver Blog"
-              className="h-5 w-5 object-contain"
+              className="h-5 w-auto object-contain"
             />
           </a>
 
@@ -216,12 +216,12 @@ export default function HomePage() {
             rel="noreferrer"
             aria-label="Instagram"
             title="Instagram"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 bg-white text-black hover:bg-black/5"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-black/15 bg-white px-4 hover:bg-black/5"
           >
             <img
               src="/icons/instagram.png"
               alt="Instagram"
-              className="h-5 w-5 object-contain"
+              className="h-5 w-auto object-contain"
             />
           </a>
         </div>
