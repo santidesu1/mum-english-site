@@ -86,16 +86,9 @@ export default function BookingPage() {
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Button type="submit">{t.forms.submit[lang]}</Button>
-          <Button variant="outline" type="button" asChild>
-            <a href={`tel:${branch.phone}`}>{lang === "ko" ? "전화로 문의" : "Call instead"}</a>
-          </Button>
         </div>
 
-        <p className="mt-4 text-xs text-black/50">
-          {lang === "ko"
-            ? "※ 주말 및 대한민국 공휴일은 휴무입니다."
-            : "※ Closed on weekends and Korean national holidays."}
-        </p>
+       
       </form>
     </div>
   );
