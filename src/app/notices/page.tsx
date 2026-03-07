@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { useLang } from "@/components/lang/LangProvider";
@@ -37,7 +36,7 @@ export default function NoticesPage() {
 
       <div className="grid gap-5">
         {posts.map((p) => (
-          <Link
+          <a
             key={p.link}
             href={p.link}
             target="_blank"
@@ -53,7 +52,7 @@ export default function NoticesPage() {
 
             <p className="mt-2 text-sm text-black/60">{p.pubDate}</p>
             <p className="mt-3 text-black/70">{p.description}</p>
-          </Link>
+          </a>
         ))}
       </div>
     </div>
