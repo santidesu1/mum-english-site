@@ -27,7 +27,7 @@ export function LocationCard() {
 
   return (
     <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
-      <h2 className="text-xl font-extrabold">{t.sections.location[lang]}</h2>
+      <h2 className="text-xl font-extrabold">{lang === "ko" ? t.sections.location.ko : "Visit us"}</h2>
 
       {/* Info rows */}
       <div className="mt-4 grid gap-2 text-sm text-black/70">
