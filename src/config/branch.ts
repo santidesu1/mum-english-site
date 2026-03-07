@@ -1,8 +1,8 @@
 export const branch = {
   nameKo: "뮤엠영어 수원역푸르지오자이점",
   nameEn: "MU:M English Suwon Station Prugio Xi Branch",
-  taglineKo: "주 5일 · 꼼꼼한 개별 지도",
-  taglineEn: "Mon–Fri learning routine · careful individual guidance",
+  taglineKo: "원장 1:1 개별지도",
+  taglineEn: "One-to-one care and guidance",
   addressKo: "수원시 팔달구 팔달로 69 라임스퀘어 4층",
   addressEn: "316 Godeung-dong, Paldal-gu, Suwon-si, Gyeonggi-do",
   phone: "010-5640-6281",
