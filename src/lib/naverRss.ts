@@ -1,4 +1,4 @@
-e0xport type NaverPost = {
+export type NaverPost = {
   title: string;
   link: string;
   description: string;
