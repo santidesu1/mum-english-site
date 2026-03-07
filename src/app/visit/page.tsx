@@ -24,9 +24,9 @@ export default function BookingPage() {
             : "Fill this out and we'll contact you soon."}
         </p>
         <p className="mt-3 text-sm text-black/60">
-  {(lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn)} ·{" "}
-{(lang === "ko" ? "운영시간:" : "Hours:")}{" "}
-{(lang === "ko" ? branch.hoursKo : branch.hoursEn)}
+{lang === "ko" ? "운영시간:" : "Hours:"}{" "}
+{lang === "ko" ? branch.hoursKo : branch.hoursEn}
+{" · "}{lang === "ko" ? branch.closedNoteKo : branch.closedNoteEn}
 </p>
       </header>
 
