@@ -195,25 +195,35 @@ export default function HomePage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button variant="outline" asChild>
-            <a
-              href={branch.links.naverBlog}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {lang === "ko" ? "네이버 블로그" : "Naver Blog"}
-            </a>
-          </Button>
+          <a
+            href={branch.links.naverBlog}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Naver Blog"
+            title="Naver Blog"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 bg-white text-black hover:bg-black/5"
+          >
+            <img
+              src="/icons/naver-blog.png"
+              alt="Naver Blog"
+              className="h-5 w-5 object-contain"
+            />
+          </a>
 
-          <Button variant="outline" asChild>
-            <a
-              href={branch.links.instagram}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {lang === "ko" ? "인스타그램" : "Instagram"}
-            </a>
-          </Button>
+          <a
+            href={branch.links.instagram}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            title="Instagram"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 bg-white text-black hover:bg-black/5"
+          >
+            <img
+              src="/icons/instagram.png"
+              alt="Instagram"
+              className="h-5 w-5 object-contain"
+            />
+          </a>
         </div>
       </section>
     </div>
