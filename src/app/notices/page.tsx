@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { posts } from "@/content/posts";
 import { Badge } from "@/components/ui/Badge";
+import { useLang } from "@/components/lang/LangProvider";
 
 export default function NoticesPage() {
+  const { lang } = useLang();
   const sorted = [...posts].sort((a, b) => (a.dateISO < b.dateISO ? 1 : -1));
   return (
     <div className="space-y-8">
