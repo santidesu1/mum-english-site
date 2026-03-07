@@ -42,38 +42,40 @@ export default function BookingPage() {
         {/* honeypot */}
         <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <Field label={t.forms.guardianName[lang]}>
-            <input name="guardian_name" required className="input" />
-          </Field>
-          <Field label={t.forms.phone[lang]}>
-            <input name="phone" required className="input" />
-          </Field>
-          <Field label={t.forms.student[lang]}>
-            <input name="student_name" required className="input" />
-          </Field>
-          <Field label={t.forms.gradeAge[lang]}>
-            <input name="grade_age" required className="input" />
-          </Field>
-        </div>
+<div className="grid gap-4 md:grid-cols-2">
+  <Field label={lang === "ko" ? "학생 이름" : "Child's Name"}>
+    <input name="student_name" required className="input" />
+  </Field>
 
-        <div className="mt-4 grid gap-4">
-          <Field label={t.forms.preferredTime[lang]}>
-            <input
-              name="preferred_time"
-              className="input"
-              placeholder={lang === "ko" ? "예: 평일 16시 이후" : "e.g., weekdays after 16:00"}
-            />
-          </Field>
-          <Field label={t.forms.message[lang]}>
-            <textarea
-              name="message"
-              rows={5}
-              className="input"
-              placeholder={lang === "ko" ? "현재 상황/목표를 간단히 적어주세요." : "Tell us goals and current level."}
-            />
-          </Field>
-        </div>
+  <Field label={lang === "ko" ? "학년/나이" : "Grade / Age"}>
+    <input name="grade_age" required className="input" />
+  </Field>
+
+  <Field label={lang === "ko" ? "보호자 연락처" : "Parent/Guardian Phone"}>
+    <input name="phone" required className="input" />
+  </Field>
+
+  <Field label={lang === "ko" ? "선호 시간" : "Preferred Time"}>
+    <input
+      name="preferred_time"
+      required
+      className="input"
+      placeholder={lang === "ko" ? "예: 3월 10일 18시 이후" : "e.g., March 10 after 18:00"}
+    />
+  </Field>
+</div>
+
+<div className="mt-4 grid gap-4">
+  <Field label={lang === "ko" ? "메모" : "Notes"}>
+    <textarea
+      name="message"
+      rows={5}
+      required
+      className="input"
+      placeholder={lang === "ko" ? "현재 상황/목표를 간단히 적어주세요." : "Goals, current level, anything we should know."}
+    />
+  </Field>
+</div>
 
         <div className="mt-5 flex items-start gap-3">
           <input id="consent" name="consent" type="checkbox" required className="mt-1 h-4 w-4 accent-ink" />
