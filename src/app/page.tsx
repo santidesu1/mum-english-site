@@ -184,50 +184,36 @@ export default function HomePage() {
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-xl font-extrabold">
-              {lang === "ko" ? "SNS" : "Follow us"}
+              {lang === "ko" ? "블로그 · SNS" : "Blog & Social"}
             </h2>
             <p className="mt-1 text-sm text-black/70">
               {lang === "ko"
-                ? "최신 소식은 블로그/인스타그램에서 확인하세요."
-                : "Check our blog and Instagram for the latest updates."}
+                ? "최신 소식과 안내는 네이버 블로그와 인스타그램에서 확인하실 수 있습니다."
+                : "You can find our latest updates and announcements on Naver Blog and Instagram."}
             </p>
-          </div>
-
-          <div className="flex gap-3">
-            <Button variant="outline" asChild>
-              <a
-                href={branch.links.naverBlog}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {lang === "ko" ? "네이버 블로그" : "Naver Blog"}
-              </a>
-            </Button>
-
-            <Button variant="outline" asChild>
-              <a
-                href={branch.links.instagram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {lang === "ko" ? "인스타그램" : "Instagram"}
-              </a>
-            </Button>
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-3 gap-3 md:grid-cols-6">
-          {Array.from({ length: 6 }).map((_, i) => (
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button variant="outline" asChild>
             <a
-              key={i}
+              href={branch.links.naverBlog}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {lang === "ko" ? "네이버 블로그" : "Naver Blog"}
+            </a>
+          </Button>
+
+          <Button variant="outline" asChild>
+            <a
               href={branch.links.instagram}
               target="_blank"
               rel="noreferrer"
-              className="aspect-square rounded-xl bg-paper ring-1 ring-black/5 hover:shadow-soft"
-              aria-label="Instagram"
-              title="Instagram"
-            />
-          ))}
+            >
+              {lang === "ko" ? "인스타그램" : "Instagram"}
+            </a>
+          </Button>
         </div>
       </section>
     </div>
