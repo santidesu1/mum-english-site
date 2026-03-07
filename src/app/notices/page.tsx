@@ -1,13 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { posts } from "@/content/posts";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { useLang } from "@/components/lang/LangProvider";
+import type { NaverPost } from "@/lib/naverRss";
 
 export default function NoticesPage() {
   const { lang } = useLang();
-  const sorted = [...posts].sort((a, b) => (a.dateISO < b.dateISO ? 1 : -1));
+  const [posts, setPosts] = useState<NaverPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/naver-posts")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(Array.isArray(data) ? data : []);
+      })
+      .catch((err) => {
+        console.error("Failed to load Naver posts:", err);
+        setPosts([]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="space-y-8">
       <header className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
@@ -19,23 +37,26 @@ export default function NoticesPage() {
       </header>
 
       <div className="grid gap-5">
-        {sorted.map((p) => (
-          <Link
-            key={p.slug}
-            href={`/notices/${p.slug}`}
-            className="group rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 hover:-translate-y-0.5 hover:shadow-soft transition"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-lg font-extrabold group-hover:underline">
-                {p.title.ko}
-              </h2>
-              <Badge>{p.category}</Badge>
-            </div>
-            <p className="mt-2 text-sm text-black/60">{p.dateISO}</p>
-            <p className="mt-3 text-black/70">{p.excerpt.ko}</p>
-          </Link>
-        ))}
+  {posts.map((p) => (
+    <Link
+      key={p.link}
+      href={p.link}
+      target="_blank"
+      rel="noreferrer"
+      className="group rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 hover:-translate-y-0.5 hover:shadow-soft transition"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="text-lg font-extrabold group-hover:underline">
+          {p.title}
+        </h2>
+        <Badge>{p.category || "post"}</Badge>
       </div>
+
+      <p className="mt-2 text-sm text-black/60">{p.pubDate}</p>
+      <p className="mt-3 text-black/70">{p.description}</p>
+    </Link>
+  ))}
+</div>
     </div>
   );
 }
