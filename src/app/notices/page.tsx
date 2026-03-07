@@ -7,8 +7,11 @@ export default function NoticesPage() {
   return (
     <div className="space-y-8">
       <header className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
-        <h1 className="text-2xl font-extrabold">공지/블로그</h1>
-        <p className="mt-2 text-black/70">중요 안내와 소식을 모아두었습니다.</p>
+        <h1 className="text-2xl font-extrabold">{lang === "ko" ? "공지/블로그" : "Updates"}
+</h1>
+<p className="mt-2 text-black/70">
+  {lang === "ko" ? "중요 안내와 소식을 모아두었습니다." : "Latest notices and events from our branch."}
+</p>
       </header>
 
       <div className="grid gap-5">
