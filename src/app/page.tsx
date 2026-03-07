@@ -216,6 +216,89 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
+
+      <footer className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
+        <div className="grid gap-8 md:grid-cols-3">
+          <div className="space-y-2 text-sm text-black/70">
+            <p className="font-extrabold text-black">
+              {lang === "ko"
+                ? branch.nameKo
+                : "MU:M English Suwon Station Prugio Xi"}
+            </p>
+            <p>
+              {lang === "ko"
+                ? branch.addressKo
+                : "4F, Lime Square, 69 Paldal-ro, Paldal-gu, Suwon-si"}
+            </p>
+            <p>{branch.phone}</p>
+            <p>
+              {lang === "ko"
+                ? "월–금 13:00–19:00 · 주말 및 대한민국 공휴일 휴무"
+                : "Mon–Fri 13:00–19:00 · Closed on weekends and Korean national holidays"}
+            </p>
+          </div>
+
+          <div className="space-y-2 text-sm text-black/70">
+            <p className="font-extrabold text-black">
+              {lang === "ko" ? "바로가기" : "Quick links"}
+            </p>
+            <p>
+              <Link href="/booking" className="hover:underline">
+                {lang === "ko" ? "상담 예약" : "Book a visit"}
+              </Link>
+            </p>
+            <p>
+              <Link href="/notices" className="hover:underline">
+                {lang === "ko" ? "공지 / 블로그" : "Updates"}
+              </Link>
+            </p>
+            <p>
+              <a
+                href={branch.links.naverMap}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline"
+              >
+                {lang === "ko" ? "오시는 길" : "Directions"}
+              </a>
+            </p>
+          </div>
+
+          <div className="space-y-2 text-sm text-black/70">
+            <p className="font-extrabold text-black">
+              {lang === "ko" ? "정책" : "Policies"}
+            </p>
+            <p>{lang === "ko" ? "개인정보처리방침" : "Privacy policy"}</p>
+            <p>{lang === "ko" ? "이용약관" : "Terms of use"}</p>
+            <div className="flex gap-4 pt-2">
+              <a
+                href={branch.links.naverBlog}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline"
+              >
+                {lang === "ko" ? "블로그" : "Blog"}
+              </a>
+              <a
+                href={branch.links.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 border-t border-black/5 pt-4 text-xs text-black/50">
+          © 2026{" "}
+          {lang === "ko"
+            ? branch.nameKo
+            : "MU:M English Suwon Station Prugio Xi"}
+          . All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }
