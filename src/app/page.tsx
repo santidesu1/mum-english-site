@@ -35,8 +35,8 @@ export default function HomePage() {
 
             <p className="max-w-xl text-base leading-7 text-black/75">
               {lang === "ko"
-                ? "한 번에 많은 아이들을 가르치는 수업이 아니라, 아이 한 명의 속도와 성향에 맞춰 지도합니다."
-                : "Not a large group class—each child is guided at the pace and style that fits them best."}
+                ? "강의식 수업이 아닌, 아이 한 명의 속도와 성향에 맞춰 지도합니다.."
+                : "Not a large group class. Each child is guided at the pace and style that fits them best."}
             </p>
 
             <p className="max-w-xl text-sm leading-6 text-black/60">
