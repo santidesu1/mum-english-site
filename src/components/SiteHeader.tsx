@@ -38,8 +38,8 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <Link
               key={item.href}
-              className="text-sm font-extrabold hover:underline"
               href={item.href}
+              className="text-sm font-extrabold hover:underline"
             >
               {item.label}
             </Link>
