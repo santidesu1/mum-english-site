@@ -81,7 +81,7 @@ export default function HomePage() {
 
               <div className="rounded-2xl bg-sun p-5 text-ink shadow-soft">
                 <p className="text-sm font-bold">
-                  {lang === "ko" ? "상담문의" : "Contact"}
+                  {lang === "ko" ? "상담문의" : "Contact Us"}
                 </p>
                 <p className="mt-1 text-2xl font-extrabold tracking-tight">
                   {branch.phone}
