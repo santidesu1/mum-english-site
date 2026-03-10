@@ -26,8 +26,11 @@ export function SiteHeader() {
         <Link href="/" className="flex min-w-0 items-center gap-3">
           <OwlLogo className="h-9 w-9" />
           <div className="min-w-0 leading-tight">
-            <div className="truncate text-sm font-extrabold">
-              {branch.nameKo}
+            <div className="text-sm font-extrabold md:hidden">
+              {lang === "ko" ? "뮤엠영어 수원역푸르지오" : "MU:M Suwon Station Prugio"}
+            </div>
+            <div className="hidden text-sm font-extrabold md:block">
+              {lang === "ko" ? branch.nameKo : "MU:M English Suwon Station Prugio Xi"}
             </div>
             <div className="truncate text-xs font-semibold text-black/60">
               {lang === "ko" ? branch.taglineKo : branch.taglineEn}
