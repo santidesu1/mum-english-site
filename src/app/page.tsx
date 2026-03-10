@@ -66,9 +66,7 @@ export default function HomePage() {
                 </p>
 
                 <ul className="mt-4 space-y-2 text-sm text-white/80">
-                  <li>
-                    {lang === "ko" ? "무료 주차 가능" : "Free parking"}
-                  </li>
+                  <li>{lang === "ko" ? "무료 주차 가능" : "Free parking"}</li>
                   <li>
                     {lang === "ko" ? "대기공간 · Wi-Fi" : "Waiting area · Wi-Fi"}
                   </li>
@@ -103,64 +101,48 @@ export default function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5 md:p-8">
-          <h2 className="text-xl font-extrabold">{t.nav.programs[lang]}</h2>
+          <h2 className="text-xl font-extrabold">
+            {lang === "ko" ? "프로그램" : "Programs"}
+          </h2>
           <p className="mt-2 text-black/70">
             {lang === "ko"
-              ? "집중한 아이에게 맞는 루틴을 안내드립니다."
-              : "We guide each student into the routine that fits them best."}
+              ? "매일의 학습, 개별 확장 학습, 꾸준한 점검을 바탕으로 한 체계적인 영어 프로그램입니다."
+              : "A structured English program built around daily learning, personalized extension, and steady review."}
           </p>
 
           <div className="mt-5 grid gap-3">
             <div className="rounded-xl bg-paper p-4 ring-1 ring-black/5">
               <p className="font-bold">
-                {lang === "ko" ? "7–9세 파닉스 전문반" : "Ages 7–9 phonics track"}
+                {lang === "ko" ? "매일의 핵심 프로그램" : "Daily core program"}
               </p>
               <p className="mt-1 text-sm text-black/70">
                 {lang === "ko"
-                  ? "기초 루틴을 탄탄하게"
-                  : "Build a strong foundation"}
+                  ? "규칙적인 학습 루틴으로 영어 습관, 자신감, 그리고 탄탄한 기초를 만들어갑니다."
+                  : "A structured daily routine that helps children build habit, confidence, and a strong learning base."}
               </p>
             </div>
 
             <div className="rounded-xl bg-paper p-4 ring-1 ring-black/5">
               <p className="font-bold">
-                {lang === "ko"
-                  ? "리딩/라이팅 확장"
-                  : "Reading and writing growth"}
+                {lang === "ko" ? "확장 학습" : "Extension learning"}
               </p>
               <p className="mt-1 text-sm text-black/70">
                 {lang === "ko"
-                  ? "학습 흐름을 자연스럽게"
-                  : "Develop a natural learning flow"}
+                  ? "아이의 수준과 속도, 성장 흐름에 맞춰 확장 학습을 이어갑니다."
+                  : "Additional learning is guided according to each child’s level, pace, and growth needs."}
               </p>
             </div>
 
             <div className="rounded-xl bg-paper p-4 ring-1 ring-black/5">
               <p className="font-bold">
-                {lang === "ko"
-                  ? "학습 점검/피드백"
-                  : "Feedback and check-ins"}
+                {lang === "ko" ? "복습과 온라인 학습 지원" : "Review and online support"}
               </p>
               <p className="mt-1 text-sm text-black/70">
                 {lang === "ko"
-                  ? "꾸준함을 만드는 관리감"
-                  : "Support that builds consistency"}
+                  ? "정기적인 점검과 온라인 학습 지원으로 복습과 예습을 꾸준히 이어갑니다."
+                  : "Regular check-ins and online practice help children review, prepare, and stay on track."}
               </p>
             </div>
-          </div>
-
-          <div className="mt-6 flex gap-3">
-            <Button asChild>
-              <Link href="/programs">
-                {lang === "ko" ? "자세히 보기" : "View programs"}
-              </Link>
-            </Button>
-
-            <Button variant="outline" asChild>
-              <Link href="/notices">
-                {lang === "ko" ? "공지 보기" : "View updates"}
-              </Link>
-            </Button>
           </div>
         </div>
 
