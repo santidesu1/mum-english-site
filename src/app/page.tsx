@@ -19,8 +19,8 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-3 rounded-full bg-sun px-4 py-2 text-sm font-semibold text-ink">
               <span className="h-2 w-2 rounded-full bg-ink" />
               {lang === "ko"
-                ? branch.closedNoteKo
-                : "Mon–Fri 13:00–19:00 · Closed on weekends and Korean national holidays"}
+                ? "주 5일 1:1 맞춤 지도"
+                : "Five-day 1:1 personalized guidance"}
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">
@@ -32,36 +32,28 @@ export default function HomePage() {
             <p className="text-lg font-medium text-black/70">
               {lang === "ko"
                 ? branch.taglineKo
-                : "Five-day learning routine with close individual guidance"}
+                : branch.taglineEn}
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <p className="max-w-xl text-base leading-7 text-black/75">
+              {lang === "ko"
+                ? "한 번에 많은 아이들을 가르치는 수업이 아니라, 아이 한 명의 속도와 성향에 맞춰 지도합니다."
+                : "Not a large group class—each child is guided at the pace and style that fits them best."}
+            </p>
+
+            <p className="max-w-xl text-sm leading-6 text-black/60">
+              {lang === "ko"
+                ? "매일 1시간, 주 5일의 규칙적인 루틴이 영어 습관과 자신감을 함께 키웁니다."
+                : "One hour a day, five days a week builds steady English habits and confidence."}
+            </p>
+
+            <div className="pt-1">
               <Button asChild>
-                <Link href="/booking">{t.cta.book[lang]}</Link>
-              </Button>
-
-              <Button variant="outline" asChild>
-                <a href={`tel:${branch.phone}`}>
-                  {t.cta.call[lang]} · {branch.phone}
-                </a>
-              </Button>
-
-              <Button variant="ghost" asChild>
-                <a
-                  href={branch.links.naverMap}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t.cta.map[lang]}
-                </a>
+                <Link href="/booking">
+                  {lang === "ko" ? "상담 예약하기" : "Book a visit"}
+                </Link>
               </Button>
             </div>
-
-            <p className="text-sm text-black/60">
-              {lang === "ko"
-                ? branch.addressKo
-                : "Address: 4F, Lime Square, 69 Paldal-ro, Paldal-gu, Suwon-si"}
-            </p>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl bg-ink">
@@ -71,8 +63,8 @@ export default function HomePage() {
                 <p className="text-sm font-semibold text-sun">MU:M English</p>
                 <p className="mt-2 text-white/90">
                   {lang === "ko"
-                    ? "주 5일 학습 루틴과 꼼꼼한 피드백으로 아이의 영어 습관을 탄탄하게 잡아갑니다."
-                    : "We help build strong English habits through a five-day learning routine and careful feedback."}
+                    ? "매일의 꾸준한 학습, 꼼꼼한 지도, 개별 맞춤 학습으로 영어 습관을 탄탄하게 만듭니다."
+                    : "We build strong English habits through steady daily practice, close guidance, and individualized learning."}
                 </p>
 
                 <ul className="mt-4 space-y-2 text-sm text-white/80">
@@ -89,7 +81,7 @@ export default function HomePage() {
                   <li>
                     {lang === "ko"
                       ? "주말/공휴일 휴무"
-                      : "Closed on weekends and national holidays"}
+                      : "Closed weekends & holidays"}
                   </li>
                 </ul>
               </div>
@@ -103,8 +95,8 @@ export default function HomePage() {
                 </p>
                 <p className="mt-2 text-sm font-medium">
                   {lang === "ko"
-                    ? "카카오톡/가격 안내는 공지/블로그에서 업데이트합니다."
-                    : "KakaoTalk and pricing updates are posted in Notices/Blog."}
+                    ? "상담 및 안내는 공지/블로그에서도 확인하실 수 있습니다."
+                    : "Consultation updates and notices are also shared on our blog."}
                 </p>
               </div>
             </div>
