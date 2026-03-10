@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { Route } from "next";
 import { useState } from "react";
 import { branch } from "@/config/branch";
 import { OwlLogo } from "./OwlLogo";
@@ -11,7 +12,7 @@ export function SiteHeader() {
   const { lang } = useLang();
   const [open, setOpen] = useState(false);
 
-  const navItems = [
+  const navItems: { href: Route; label: string }[] = [
     { href: "/", label: lang === "ko" ? "홈" : "Home" },
     { href: "/booking", label: lang === "ko" ? "상담 예약" : "Book a Visit" },
     { href: "/trial", label: lang === "ko" ? "무료 체험" : "Free Trial" },
