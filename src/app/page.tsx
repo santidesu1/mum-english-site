@@ -30,9 +30,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-lg font-medium text-black/70">
-              {lang === "ko"
-                ? branch.taglineKo
-                : branch.taglineEn}
+              {lang === "ko" ? branch.taglineKo : branch.taglineEn}
             </p>
 
             <p className="max-w-xl text-base leading-7 text-black/75">
@@ -58,35 +56,32 @@ export default function HomePage() {
 
           <div className="relative overflow-hidden rounded-2xl bg-ink">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,212,0,0.35),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.08),transparent_40%)]" />
-            <div className="relative p-6 md:p-8">
+            <div className="relative space-y-5 p-6 md:p-8">
               <div className="rounded-2xl bg-white/10 p-5 ring-1 ring-white/15">
                 <p className="text-sm font-semibold text-sun">MU:M English</p>
                 <p className="mt-2 text-white/90">
                   {lang === "ko"
                     ? "매일의 꾸준한 학습, 꼼꼼한 지도, 개별 맞춤 학습으로 영어 습관을 탄탄하게 만듭니다."
-                    : "We build strong English habits through steady daily practice, close guidance, and individualized learning."}
+                    : "Steady daily practice, close guidance, and individualized learning help children build strong English habits."}
                 </p>
 
                 <ul className="mt-4 space-y-2 text-sm text-white/80">
                   <li>
-                    {lang === "ko"
-                      ? "무료 주차 가능"
-                      : "Free parking available"}
+                    {lang === "ko" ? "무료 주차 가능" : "Free parking"}
                   </li>
                   <li>
-                    {lang === "ko"
-                      ? "대기공간 · Wi-Fi · 남/녀 화장실 구분"
-                      : "Waiting area · Wi-Fi · separate restrooms"}
+                    {lang === "ko" ? "대기공간 · Wi-Fi" : "Waiting area · Wi-Fi"}
                   </li>
                   <li>
-                    {lang === "ko"
-                      ? "주말/공휴일 휴무"
-                      : "Closed weekends & holidays"}
+                    {lang === "ko" ? "남/녀 화장실 구분" : "Separate restrooms"}
+                  </li>
+                  <li>
+                    {lang === "ko" ? "주말/공휴일 휴무" : "Closed weekends & holidays"}
                   </li>
                 </ul>
               </div>
 
-              <div className="mt-5 rounded-2xl bg-sun p-5 text-ink shadow-soft">
+              <div className="rounded-2xl bg-sun p-5 text-ink shadow-soft">
                 <p className="text-sm font-bold">
                   {lang === "ko" ? "상담문의" : "Contact"}
                 </p>
@@ -95,8 +90,8 @@ export default function HomePage() {
                 </p>
                 <p className="mt-2 text-sm font-medium">
                   {lang === "ko"
-                    ? "상담 및 안내는 공지/블로그에서도 확인하실 수 있습니다."
-                    : "Consultation updates and notices are also shared on our blog."}
+                    ? "공지와 상담 안내는 블로그에서도 확인하실 수 있습니다."
+                    : "Notices and consultation updates are shared on our blog."}
                 </p>
               </div>
             </div>
